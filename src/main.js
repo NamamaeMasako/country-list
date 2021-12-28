@@ -7,7 +7,7 @@ import vuetify from './plugins/vuetify'
 Vue.config.productionTip = false
 Vue.prototype.$axios = axios;
 import './assets/styles/app.css';
-
+console.log('store',store)
 new Vue({
 	router,
 	store,

@@ -1,6 +1,9 @@
-// import axios from 'axios'
+import axios from 'axios'
 
 const state = {
+    apiList:{
+        all: 'https://restcountries.com/v3.1/all'
+    },
     dataList:{
         countryList: {
             search: '',
@@ -112,7 +115,39 @@ const mutations = {
 }
 
 const actions = {
-    
+    getCountryListData: async (context) => {
+        axios(context.state.apiList.all).then(response => {
+            console.log(response)
+            // if(response.data.status != true){
+            //     throw response.data 
+            // }
+            // if(response.data.result[0].member_character.length > 0){
+            //     response.data.result[0].member_character.forEach((el) => {
+            //         context.state.selectList.ownedCharacterList.push(el.character_no)
+            //     })
+            // }
+            // if(response.data.result[0].member_shopspace.length > 0){
+            //     response.data.result[0].member_shopspace.forEach((el) => {
+            //         context.state.selectList.ownedShopspaceList.push(el)
+            //     })
+            // }
+        }).catch((error) => { 
+            console.log(error)
+            // context.state.alert.variant = 'danger'
+            // context.state.alert.message = error['result']
+            // Object.keys(context.state.validateMsg).map((key) => {
+            //     if(error['message'][key] != undefined){
+            //         context.state.validateMsg[key] = error['message'][key]
+            //     }else{
+            //         context.state.validateMsg[key] = ''
+            //     }
+            // })
+            // context.commit('showAlert')
+        })
+    },
+    initPage: async (context) => {
+        await context.dispatch('getCountryListData')
+    },
 }
  
 const module = {

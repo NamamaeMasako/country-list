@@ -1,20 +1,30 @@
 <template>
 	<v-container>
 		<v-row class="text-center">
-			<v-data-table :items="dataList.countryList.datas" :headers="dataList.countryList.headers"></v-data-table>
+			<v-data-table :items="countryList.datas" :headers="countryList.headers"></v-data-table>
 		</v-row>
 	</v-container>
 </template>
 
 <script>
-let data = {}
+import { mapActions } from 'vuex'
+let dataList = {}
 export default {
 	name: 'CountryList',
 	data: () => (
-		data
+		dataList
 	),
 	beforeCreate() {
-		data = this.$store.state.CountryListData.indexData
+		dataList = this.$store.state.CountryListData.indexData.dataList
+		console.log(this)
 	},
+	mounted() {
+		this.initPage()
+	},
+	methods: {
+        ...mapActions('CountryListData/indexData',[
+            'initPage'
+        ])   
+    }
 }
 </script>
