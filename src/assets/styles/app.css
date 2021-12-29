@@ -1,3 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Nunito");
 @import url("https://use.fontawesome.com/releases/v5.11.2/css/all.css");
-@import url("https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css");/*# sourceMappingURL=app.css.map */
+@import url("https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css");
+.flag {
+  width: 80px;
+}/*# sourceMappingURL=app.css.map */
