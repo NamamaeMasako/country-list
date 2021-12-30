@@ -5,7 +5,11 @@ const state = {
         all: 'https://restcountries.com/v3.1/all'
     },
     dataList:{
+        dialog: false,
         countryList: {
+            page: 1,
+            itemsPerPage: 25,
+            pageCount: 1,
             search: '',
             headers: [
                 { text: '國家名稱',value: 'name.official' },
@@ -51,11 +55,6 @@ const actions = {
                 // console.log(k)
                 // console.log(el.name.nativeName[k].official)
             })
-            // if(response.data.result[0].member_shopspace.length > 0){
-            //     response.data.result[0].member_shopspace.forEach((el) => {
-            //         context.state.selectList.ownedShopspaceList.push(el)
-            //     })
-            // }
         }).catch((error) => { 
             console.log(error)
             // context.state.alert.variant = 'danger'
